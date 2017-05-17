@@ -1,1 +1,3 @@
 rootProject.name = 'protocolimplgen'
+include 'protocolimplgen-gradle'
+
