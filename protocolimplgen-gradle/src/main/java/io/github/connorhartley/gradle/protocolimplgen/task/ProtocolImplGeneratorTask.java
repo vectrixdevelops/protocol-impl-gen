@@ -21,15 +21,31 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package io.github.connorhartley.gradle.protocolimplgen;
+package io.github.connorhartley.gradle.protocolimplgen.task;
 
-import org.gradle.api.Plugin;
-import org.gradle.api.Project;
+import org.gradle.api.UncheckedIOException;
+import org.gradle.api.tasks.TaskAction;
+import org.gradle.api.tasks.compile.AbstractCompile;
 
-public class ProtocolImplGenPlugin implements Plugin<Project> {
+import java.io.IOException;
+
+public class ProtocolImplGeneratorTask extends AbstractCompile {
+
+    public ProtocolImplGeneratorTask() {
+
+    }
 
     @Override
-    public void apply(Project project) {
+    protected void compile() {
+        try {
+            generateImplementations();
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
+    }
+
+    @TaskAction
+    public void generateImplementations() throws IOException {
 
     }
 }

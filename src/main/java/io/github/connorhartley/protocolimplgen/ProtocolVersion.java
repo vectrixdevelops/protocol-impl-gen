@@ -33,7 +33,7 @@ import java.lang.annotation.Target;
  * Allows you to specify whether the class or method exists on a
  * specific protocol version, in order to determine what it generates.
  *
- * <p>Unsupported protocol versions will most likely generate q dummy
+ * <p>Unsupported protocol versions will most likely generate a dummy
  * object or method that will return either null or {@code Optional.empty()},
  * unless a default method is set to be used, in which case the method will
  * not generate at all.</p>
